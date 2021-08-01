@@ -69,7 +69,7 @@ namespace Persona.API.FakeDB
                 Mobile = "3016417088",
                 State = true,
                 BirthDate = System.DateTime.Now,
-                ZipCode = 110141v
+                ZipCode = 110141
             },
         };
         public List<Person> FakePersons
