@@ -24,7 +24,7 @@ namespace Person.Tests
         public void Should_return_new_product_id()
         {
             //Arrange
-            var product = new Person
+            var person = new Person
             {
                 Name = "Name",
                 Age = 50,
@@ -38,7 +38,7 @@ namespace Person.Tests
             };
 
             //Act
-            var result = _controller.Save(product);
+            var result = _controller.Save(person);
             var convertedRersult = result.Result as OkObjectResult;
 
             //Assert
@@ -69,6 +69,21 @@ namespace Person.Tests
             Assert.IsAssignableFrom<BadRequestObjectResult>(result.Result);
         }
 
-        
+        [Fact]
+        public void Should_return_BadRequest_for_validation_of_model_failure_age_zero()
+        {
+            //Arrange
+            var person = new Person
+            {
+                Name = "Name",
+                Age = 0
+            };
+
+            //Act
+            var result = _controller.Save(person);
+
+            //Assert
+            Assert.IsAssignableFrom<BadRequestObjectResult>(result.Result);
+        }
     }
 }
