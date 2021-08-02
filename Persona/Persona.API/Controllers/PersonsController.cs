@@ -40,6 +40,13 @@
             return Ok(_fakeDb.FakePersons);
         }
 
+
+        /// <summary>
+        /// Metodo que devuelve una persona por id
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200">Se completó la busqueda correctamente y retornó la persona</response>
+        /// <response code="500">Se presentó un error interno al consultar la persona</response>
         [HttpGet("/{personId:int}")]
         public ActionResult<Person> GetById(int personId)
         {
@@ -58,6 +65,12 @@
             return Ok(person);
         }
 
+        /// <summary>
+        /// Metodo que elimina una persona por id
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200">Se completó la eliminación de la persona correctamente</response>
+        /// <response code="500">Se presentó un error interno al eliminar la persona</response>
         [HttpDelete("/{personId:int}")]
         public ActionResult Delete(int personId)
         {
@@ -81,6 +94,12 @@
             return Ok();
         }
 
+        /// <summary>
+        /// Metodo que actualiza una persona
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200">Se completó la actualización de la persona correctamente</response>
+        /// <response code="500">Se presentó un error interno al actualizar la persona</response>
         [HttpPut("/{personId:int}")]
         public ActionResult Update(int personId, [FromBody] Person person)
         {
@@ -119,6 +138,12 @@
             return Ok();
         }
 
+        /// <summary>
+        /// Metodo que adiciona una persona
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200">Se completó la adición de la persona correctamente</response>
+        /// <response code="500">Se presentó un error al adicionar la persona</response>
         [HttpPost]
         public ActionResult<int> Save([FromBody] Person person)
         {
