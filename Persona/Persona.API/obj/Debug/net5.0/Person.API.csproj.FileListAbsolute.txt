@@ -30,3 +30,4 @@ C:\Projects\Persona\Persona\Persona.API\obj\Debug\net5.0\ref\Person.API.dll
 C:\Projects\Persona\Persona\Persona.API\obj\Debug\net5.0\Person.API.pdb
 C:\Projects\Persona\Persona\Persona.API\obj\Debug\net5.0\Person.API.genruntimeconfig.cache
 C:\Projects\Persona\Persona\Persona.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Projects\Persona\Persona\Persona.API\obj\Debug\net5.0\Person.API.csproj.AssemblyReference.cache

@@ -46,10 +46,11 @@ namespace Person.API.Validators
 
 
             RuleFor(p => p.ZipCode)
-               .NotNull().WithMessage("El código Postal no puede ser nulo")
-             .InclusiveBetween(0, 999999).WithMessage("El código Postal debe contener 6 dígitos");
+               .NotNull().WithMessage("El código Postal no puede ser nulo");
+             
 
             RuleFor(p=>p.ZipCode.ToString())
+                .Length(6).WithMessage("El código Postal debe contener 6 dígitos")
                 .Matches(@"^[\d]+$").WithMessage("El código Postal debe ser un número, no debe contener letras ni caracteres.");
 
 
