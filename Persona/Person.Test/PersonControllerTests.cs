@@ -76,7 +76,15 @@ namespace Person.Tests
             var person = new Person
             {
                 Name = "Name",
-                Age = 0
+                Age = 0,
+                Email = "string@fff.com",
+                Adress = "string",
+                Phone = "2345678",
+                Mobile = "3052289420",
+                State = true,
+                BirthDate = System.DateTime.Now,
+                ZipCode = 213450
+
             };
 
             //Act
