@@ -11,6 +11,7 @@ namespace Person.API.Validators
         {
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("El Nombre no puede estar vacio")
+                .Length(5, 20).WithMessage("El nombre debe tener mínimo 5 letras 7 máximo de 20 letras")
                 .MaximumLength(20).WithMessage("El Nombre puede tener maximo 20 caracteres");
 
             RuleFor(p => p.Age)
