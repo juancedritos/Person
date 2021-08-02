@@ -1,7 +1,7 @@
 ﻿
-namespace Persona.API.Validators
+namespace Person.API.Validators
 {
-    using Persona.API.Models;
+    using Person.API.Models;
     using FluentValidation;
     using System;
 
@@ -10,30 +10,34 @@ namespace Persona.API.Validators
         public PersonValidator()
         {
             RuleFor(p => p.Name)
-                .NotEmpty().WithMessage("El parametro Name no puede estar vacio")
-                .MaximumLength(20).WithMessage("El parametro Name puede tener maximo 20 caracteres");
+                .NotEmpty().WithMessage("El Nombre no puede estar vacio")
+                .MaximumLength(20).WithMessage("El Nombre puede tener maximo 20 caracteres");
 
             RuleFor(p => p.Age)
-                .NotNull().WithMessage("El parametro Age no puede ser nulo")
+                .NotNull().WithMessage("La edad no puede ser nula")
                 .Must(price => price > 0).WithMessage("La edad debe ser mayor a cero")
                 .InclusiveBetween(10, 90).WithMessage("La edad debe estar entre 10 y 90 años");
 
             RuleFor(p => p.Email)
-               .NotEmpty().WithMessage("El parametro Email no puede ser nulo")
+               .NotEmpty().WithMessage("El Email no puede ser nulo")
                .EmailAddress().WithMessage("El email debe tener el formato xxxx@xxx.com");
 
             RuleFor(p => p.Adress)
-               .NotEmpty().WithMessage("El parametro Adress no puede ser nulo");
+               .NotEmpty().WithMessage("La dirección no puede ser nula");
 
             RuleFor(p => p.Phone)
-               .NotEmpty().WithMessage("El parametro Phone no puede ser nulo");
+               .NotEmpty().WithMessage("El teléfono no puede ser nulo")
+            .Length(7).WithMessage("El teléfono debe contener 7 digitos")
+            .Matches(@"^[\d]+$").WithMessage("El teléfono debe ser un numero, no debe contener letras ni caracteres.");
 
             RuleFor(p => p.Mobile)
-             .NotNull().WithMessage("El parametro Mobile no puede ser nulo")
-             .Length(10).WithMessage("El celular debe contener 10 digitos");
+             .NotNull().WithMessage("El celular no puede ser nulo")
+             .Length(10).WithMessage("El celular debe contener 10 digitos")
+             .Matches(@"^[\d]+$").WithMessage("El celular ser un numero, no debe contener letras ni caracteres.");
 
             RuleFor(p => p.State)
-              .NotEmpty().WithMessage("El parametro State no puede ser nulo");
+              .NotEmpty().WithMessage("El Estado no puede ser nulo")
+              .Must(x => x == false || x == true).WithMessage("El estado debe ser true o false");
 
             RuleFor(p => p.BirthDate)
                .NotEmpty().WithMessage("El parametro BirthDate no puede ser nulo")
@@ -42,8 +46,11 @@ namespace Persona.API.Validators
 
 
             RuleFor(p => p.ZipCode)
-               .NotNull().WithMessage("El parametro ZipCode no puede ser nulo")
-             .InclusiveBetween(0, 999999).WithMessage("El código Zio debe contener 6 dígitos");
+               .NotNull().WithMessage("El código Postal no puede ser nulo")
+             .InclusiveBetween(0, 999999).WithMessage("El código Postal debe contener 6 dígitos");
+
+            RuleFor(p=>p.ZipCode.ToString())
+                .Matches(@"^[\d]+$").WithMessage("El código Postal debe ser un número, no debe contener letras ni caracteres.");
 
 
         }

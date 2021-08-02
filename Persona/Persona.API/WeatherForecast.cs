@@ -1,6 +1,6 @@
 using System;
 
-namespace Persona.API
+namespace Person.API
 {
     public class WeatherForecast
     {

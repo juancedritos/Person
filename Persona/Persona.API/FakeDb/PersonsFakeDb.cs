@@ -1,8 +1,7 @@
-﻿using Persona.API.Models;
-using System.Collections.Generic;
-
-namespace Persona.API.FakeDB
+﻿namespace Person.API.FakeDB
 {
+    using Person.API.Models;
+    using System.Collections.Generic;
     public class PersonsFakeDb
     {
         private List<Person> _fakePerson = new List<Person>

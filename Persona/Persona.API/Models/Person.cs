@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Persona.API.Models
+﻿namespace Person.API.Models
 {
+    using System;
     public class Person
     {
         public int Id { get; set; }
